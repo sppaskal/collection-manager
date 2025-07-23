@@ -10,6 +10,7 @@ const config = {
     dbUri: process.env.DEV_DB_URI,
     dbName: process.env.DEV_DB_NAME,
     renderTestMode: false,
+    skipAuth: false,
     loggingLevel: 'debug',
     secretKey: process.env.DEV_SECRET_KEY,
     jwtExpiry: '24h'
@@ -19,6 +20,7 @@ const config = {
     dbUri: process.env.PROD_DB_URI,
     dbName: process.env.PROD_DB_NAME,
     renderTestMode: false,
+    skipAuth: false, // should never be enabled in production
     loggingLevel: 'info',
     secretKey: process.env.PROD_SECRET_KEY,
     jwtExpiry: '2h'
