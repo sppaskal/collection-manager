@@ -1,0 +1,524 @@
+{
+	"info": {
+		"_postman_id": "26dcb9bf-dd6f-44ac-817b-b3af1359586e",
+		"name": "TCG Collection Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15171022"
+	},
+	"item": [
+		{
+			"name": "yugioh",
+			"item": [
+				{
+					"name": "all yugioh cards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/yugioh_cards",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"yugioh_cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all yugioh cards for set",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/yugioh_cards/set/Dark Legends?",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"yugioh_cards",
+								"set",
+								"Dark Legends"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "yugioh card by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/yugioh_cards/id/89631139",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"yugioh_cards",
+								"id",
+								"89631139"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "yugioh card by name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/yugioh_cards/name/Dark Magician",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"yugioh_cards",
+								"name",
+								"Dark Magician"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "yugioh card by set-code",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/yugioh_cards/set-code/lob-001",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"yugioh_cards",
+								"set-code",
+								"lob-001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "yugioh cards by ids",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [\r\n        34541863,\r\n        64163367,\r\n        91231901,\r\n        73262676,\r\n        98319530,\r\n        37478723,\r\n        64867422\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/yugioh_cards/ids",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"yugioh_cards",
+								"ids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "yugioh card pictures by ids",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/yugioh_cards/images/1000078768,10000002,10000000?",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"yugioh_cards",
+								"images",
+								"1000078768,10000002,10000000"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tcg collection",
+			"item": [
+				{
+					"name": "card(s) to user collection",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"card_id\": \"46986414\",\r\n  \"tcg\": \"Yu-Gi-Oh!\",\r\n  \"name\": \"Dark Magician\",\r\n  \"copies\": [\r\n    { \"set_code\": \"LOB\", \"condition\": \"mint\", \"rarity\": \"super\", \"cost\": 80 },\r\n    { \"set_code\": \"SDY\", \"condition\": \"good\", \"rarity\": \"ultra\" }\r\n  ],\r\n  \"custom_info\": {\r\n    \"custom_1\": \"some custom info\",\r\n    \"custom_2\": \"more custom info\",\r\n    \"custom_3\": {\r\n        \"custom_4\": \"the customest info\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user_collection/add",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user_collection",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "collection entry",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"card_id\": \"46986414\",\r\n  \"tcg\": \"Yu-Gi-Oh!\",\r\n  \"copies\": [\r\n    { \"set_code\": \"LOB\", \"condition\": \"played\", \"rarity\": \"super\", \"cost\": 80 },\r\n    { \"set_code\": \"SDY\", \"condition\": \"mint\", \"rarity\": \"ultra\", \"test\": \"test\" }\r\n  ],\r\n  \"custom_info\": {\r\n    \"custom_1\": \"some custom info\",\r\n    \"custom_2\": \"more custom info\",\r\n    \"custom_3\": {\r\n        \"custom_4\": \"the customest info\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user_collection/6750a83c566009c0865e66e2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user_collection",
+								"6750a83c566009c0865e66e2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user cards for tcg",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"card_id\": 89631139,\r\n  \"tcg\": \"Yu-Gi-Oh!\",\r\n  \"name\": \"Blue-Eyes White Dragon\",\r\n  \"quantity\": 2,\r\n  \"copies\": [\r\n    { \"set_code\": \"LOB\", \"condition\": \"mint\", \"rarity\": \"super\", \"cost\": 100 },\r\n    { \"set_code\": \"SDK\", \"condition\": \"good\", \"rarity\": \"ultra\" }\r\n  ],\r\n  \"custom_info\": {\r\n    \"custom_1\": \"some custom info\",\r\n    \"custom_2\": \"more custom info\",\r\n    \"custom_3\": {\r\n        \"custom_4\": \"the customest info\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user_collection/Yu-Gi-Oh!",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user_collection",
+								"Yu-Gi-Oh!"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user card by name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user_collection/name/Dark Magician",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user_collection",
+								"name",
+								"Dark Magician"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user card by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user_collection/id/46986414",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user_collection",
+								"id",
+								"46986414"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user card by set-code",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user_collection/set_code/lob-002",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user_collection",
+								"set_code",
+								"lob-002"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Timmy\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/create",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "current user",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Timmy\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/edit",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Timmy\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
